@@ -46,7 +46,7 @@ export default function Home() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>
+      <Text style={styles.title} testID="welcome">
         Welcome, Raphael
       </Text>
 
@@ -66,8 +66,25 @@ export default function Home() {
         onPress={handleAddNewSkill} 
       />
 
+      <Button
+        testID="hello_button"
+        title='Hello'
+        onPress={() => {}}
+      />
+      <Button
+        testID="world_button"
+        title='World'
+        onPress={() => {}}
+      />
+
       <Text style={[styles.title, { marginVertical: 50 }]}>
         My Skills
+      </Text>
+      <Text>
+        Hello!!!
+      </Text>
+      <Text>
+        World!!!
       </Text>
 
       <FlatList
