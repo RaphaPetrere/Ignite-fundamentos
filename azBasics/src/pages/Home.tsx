@@ -55,6 +55,7 @@ export default function Home() {
       </Text>
 
       <TextInput 
+        testID='input-new'
         style={styles.input}
         placeholder='New Skill'
         placeholderTextColor='#555'
@@ -62,29 +63,13 @@ export default function Home() {
       />
       
       <Button 
+        testID='button-add'
         title="Add"
         onPress={handleAddNewSkill} 
       />
 
-      <Button
-        testID="hello_button"
-        title='Hello'
-        onPress={() => {}}
-      />
-      <Button
-        testID="world_button"
-        title='World'
-        onPress={() => {}}
-      />
-
       <Text style={[styles.title, { marginVertical: 50 }]}>
         My Skills
-      </Text>
-      <Text>
-        Hello!!!
-      </Text>
-      <Text>
-        World!!!
       </Text>
 
       <FlatList
