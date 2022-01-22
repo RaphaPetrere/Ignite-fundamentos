@@ -14,11 +14,13 @@ describe('Example', () => {
   it('check register new skill', async () => {
     const inputNewSkill = await element(by.id('input-new'));
     const buttonAddSkill = await element(by.id('button-add'));
+    const flatListSkill = await element(by.id('flat-list-skills'));
 
     await inputNewSkill.tap();
-    await inputNewSkill.typeText('React Native');
+    await inputNewSkill.typeText('React Native\n');
 
     await buttonAddSkill.tap();
-    await expect(element(by.text('React Native'))).toBeVisible();
+    await flatListSkill.tap();
+    await expect(element(by.id('flat-list-skills'))).toBeVisible();
   });
 });
