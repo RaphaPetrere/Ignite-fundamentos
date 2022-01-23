@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import {
   Text,
   StyleSheet,
@@ -17,6 +17,10 @@ export function Home() {
     const data = await response.json();
     setFriends(data);
   }
+
+  const handleFollow = useCallback(() => {
+    console.log("follow user");
+  }, [])
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Amigos</Text>
@@ -35,6 +39,7 @@ export function Home() {
       <ScrollView style={styles.list}>
         <FriendsList 
           data={friends}
+          follow={handleFollow}
         />
       </ScrollView>
     </View>

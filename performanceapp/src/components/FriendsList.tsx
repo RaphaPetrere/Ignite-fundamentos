@@ -8,9 +8,10 @@ interface Props {
     name: string;
     likes: number;
   }[];
+  follow: () => void;
 }
 
-export const FriendsList = ({ data }: Props) => {
+export const FriendsList = ({ data, follow }: Props) => {
   const totalLikes = useMemo(() => 
     data.reduce((likes, friend) => likes + friend.likes, 0)
   , [data]); //assim como o useEffect, ele só vai realizar essa função se o data mudar
@@ -19,7 +20,7 @@ export const FriendsList = ({ data }: Props) => {
       <Text>
         Total de likes - {totalLikes}
       </Text>
-      {data.map(friend => <Friend key={String(friend.id)} data={friend}/>)}
+      {data.map(friend => <Friend follow={follow} key={String(friend.id)} data={friend}/>)}
     </View>
   )
 };
