@@ -36,12 +36,10 @@ export function Home() {
         title='Buscar'
         onPress={handleSearch}
       />
-      <ScrollView style={styles.list}>
-        <FriendsList 
-          data={friends}
-          follow={handleFollow}
-        />
-      </ScrollView>
+      <FriendsList 
+        data={friends}
+        follow={handleFollow}
+      />
     </View>
   );
 }
@@ -60,8 +58,5 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 7,
     marginVertical: 10,
-  },
-  list: {
-    marginTop: 20,
   }
 });

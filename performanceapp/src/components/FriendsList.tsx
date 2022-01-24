@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Text, View } from 'react-native';
+import { FlatList, Text, View } from 'react-native';
 import { Friend } from './Friend';
 
 interface Props {
@@ -17,10 +17,16 @@ export const FriendsList = ({ data, follow }: Props) => {
   , [data]); //assim como o useEffect, ele só vai realizar essa função se o data mudar
   return (
     <View>
-      <Text>
+      <Text style={{marginVertical: 10}}>
         Total de likes - {totalLikes}
       </Text>
-      {data.map(friend => <Friend follow={follow} key={String(friend.id)} data={friend}/>)}
+      <FlatList 
+        data={data}
+        keyExtractor={item => String(item.id)}
+        renderItem={({ item }) => 
+          <Friend follow={follow} data={item}/>
+        }
+      />
     </View>
   )
 };
